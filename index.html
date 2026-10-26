@@ -9,38 +9,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap">
 <style>
-/* Layout: sky-coloured page, hero with a live balloon bouquet on the right; content in calm bands, colour lives only in the balloons and one coral action colour */
+/* Layout: raspberry hero band with confetti and a live balloon bouquet; content sections on a blush ground, each card wears its own balloon colour; violet-to-raspberry band for business; raspberry footer */
 :root{
-  --bg:#F2F5FB;
+  --bg:#FFF4F8;
   --surface:#FFFFFF;
-  --ink:#1B2140;
-  --muted:#5A6386;
-  --line:#DDE3F0;
-  --glass:rgba(242,245,251,.86);
-  --band:#1B2140;
-  --band-fg:#F2F5FB;
-  --band-muted:#AEB6D6;
-  --coral:#FF5A6E;
-  --coral-ink:#FFFFFF;
-  --sun:#FFC23D;
-  --mint:#33C7A8;
-  --cobalt:#4A6CFF;
-  --string:#8A92B2;
+  --ink:#2B0B22;
+  --muted:#7A4F6C;
+  --line:#F5D2E2;
+  --glass:rgba(255,244,248,.9);
+  --rasp:#E3126F;
+  --rasp-deep:#B30A57;
+  --rasp-ink:#FFFFFF;
+  --sun:#FFC21A;
+  --mint:#14C4B1;
+  --cobalt:#7447F5;
+  --orange:#F2600C;
+  --string:#C79AB5;
   --display:"Unbounded","Arial Rounded MT Bold","Trebuchet MS",sans-serif;
   --body:"Manrope","Segoe UI",Roboto,Arial,sans-serif;
   --hand:"Caveat","Comic Sans MS",cursive;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#11152B;--surface:#1A2040;--ink:#EEF1FB;--muted:#A4ACCB;--line:#2B3361;
-    --glass:rgba(17,21,43,.86);--band:#1A2040;--band-fg:#EEF1FB;--band-muted:#A4ACCB;
-    --coral:#FF6B7D;--coral-ink:#1B0A10;--string:#6E77A0;color-scheme:dark
+    --bg:#1A0A16;--surface:#28101F;--ink:#FDEBF4;--muted:#D6AEC6;--line:#47213C;
+    --glass:rgba(26,10,22,.9);--rasp:#FF3A8C;--string:#8E6280;color-scheme:dark
   }
 }
 :root[data-theme="dark"]{
-  --bg:#11152B;--surface:#1A2040;--ink:#EEF1FB;--muted:#A4ACCB;--line:#2B3361;
-  --glass:rgba(17,21,43,.86);--band:#1A2040;--band-fg:#EEF1FB;--band-muted:#A4ACCB;
-  --coral:#FF6B7D;--coral-ink:#1B0A10;--string:#6E77A0;color-scheme:dark
+  --bg:#1A0A16;--surface:#28101F;--ink:#FDEBF4;--muted:#D6AEC6;--line:#47213C;
+  --glass:rgba(26,10,22,.9);--rasp:#FF3A8C;--string:#8E6280;color-scheme:dark
 }
 
 *{box-sizing:border-box}
@@ -54,44 +51,57 @@ p{margin:0}
 
 .wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 section{padding-block:clamp(56px,8vw,96px)}
-.eyebrow{font-family:var(--hand);font-size:1.6rem;color:var(--coral);line-height:1}
+.eyebrow{font-family:var(--hand);font-size:1.7rem;color:var(--rasp);line-height:1}
 .section-head{display:grid;gap:12px;max-width:640px;margin-bottom:clamp(28px,4vw,44px)}
 .section-head h2{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:700}
 .section-head p{color:var(--muted);font-size:1.05rem}
 
 /* Header */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:3px solid var(--rasp)}
 .top .wrap{display:flex;align-items:center;gap:24px;padding-block:12px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.15rem;white-space:nowrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.15rem;white-space:nowrap;color:var(--rasp)}
 .logo svg{flex:none}
 .nav{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:.95rem}
 .nav a{text-decoration:none;color:var(--muted)}
-.nav a:hover{color:var(--ink)}
+.nav a:hover{color:var(--rasp)}
 .top-phone{font-weight:700;text-decoration:none;white-space:nowrap;font-variant-numeric:tabular-nums}
 @media (max-width:860px){.nav{display:none}.top-phone{margin-left:auto}}
 @media (max-width:420px){.top-phone{font-size:.9rem}}
 
 /* Buttons */
 .btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;border:2px solid transparent;transition:transform .15s ease}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;border:2px solid transparent;transition:transform .15s ease,box-shadow .15s ease}
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--coral);color:var(--coral-ink)}
-.btn-ghost{border-color:var(--line);background:var(--surface)}
+.btn-primary{background:var(--rasp);color:var(--rasp-ink);box-shadow:0 6px 18px -6px var(--rasp)}
+.btn-ghost{border-color:var(--rasp);color:var(--rasp);background:var(--surface)}
+.on-color{color:#fff}
+.on-color .btn-primary{background:#fff;color:#C20D61;box-shadow:0 8px 22px -8px rgba(60,0,30,.55)}
+.on-color .btn-ghost{background:transparent;border-color:rgba(255,255,255,.75);color:#fff}
 
-/* Hero */
-.hero{padding-block:clamp(32px,5vw,64px) clamp(40px,6vw,72px)}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
+/* Hero: one brand band, same in both themes */
+.hero{position:relative;overflow:hidden;padding-block:clamp(36px,5vw,72px) clamp(44px,6vw,80px);background:linear-gradient(140deg,#C70C62 0%,#E3126F 38%,#FF3D8F 72%,#FF7A59 100%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background-image:
+    radial-gradient(circle,#FFC21A 0 4px,transparent 5px),
+    radial-gradient(circle,#14C4B1 0 3px,transparent 4px),
+    radial-gradient(circle,#FFFFFF 0 3px,transparent 4px),
+    radial-gradient(circle,#8F6BFF 0 4px,transparent 5px),
+    radial-gradient(circle,#FFE27A 0 2px,transparent 3px);
+  background-size:230px 190px,170px 210px,260px 150px,310px 240px,120px 130px;
+  background-position:20px 30px,90px 120px,160px 60px,250px 10px,60px 90px}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
 .hero-text{display:grid;gap:22px;min-width:0}
-.hero h1{font-size:clamp(2rem,5vw,3.9rem);font-weight:800}
-.hero h1 em{font-style:normal;color:var(--coral)}
-.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--muted);max-width:34em}
-.facts{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:8px;border-top:1px solid var(--line);margin-top:6px}
+.hero .eyebrow{color:#FFE27A}
+.hero h1{font-size:clamp(2rem,5vw,3.9rem);font-weight:800;color:#fff}
+.hero h1 em{font-style:normal;color:#FFD23F}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:rgba(255,255,255,.92);max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:8px;border-top:1px solid rgba(255,255,255,.35);margin-top:6px}
 .fact{display:grid;gap:2px;padding-top:14px}
-.fact b{font-family:var(--display);font-size:1.35rem;font-weight:700}
-.fact span{color:var(--muted);font-size:.9rem}
-.bouquet{position:relative;justify-self:center;width:100%;max-width:420px}
+.fact b{font-family:var(--display);font-size:1.35rem;font-weight:700;color:#fff}
+.fact span{color:rgba(255,255,255,.85);font-size:.9rem}
+.bouquet{position:relative;justify-self:center;width:100%;max-width:420px;--string:rgba(255,255,255,.8)}
 .bouquet svg{width:100%;height:auto;display:block;overflow:visible}
-.bouquet .hint{display:block;text-align:center;margin-top:6px;font-family:var(--hand);font-size:1.35rem;color:var(--muted)}
+.bouquet .hint{display:block;text-align:center;margin-top:6px;font-family:var(--hand);font-size:1.45rem;color:#fff}
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr}
   .bouquet{max-width:280px}
@@ -105,7 +115,7 @@ section{padding-block:clamp(56px,8vw,96px)}
   .c-row .val{font-size:1.05rem}
   .copy-btn{padding:5px 12px}
   .float-row{grid-template-columns:auto 1fr;gap:4px 12px}
-  .float-row .time{grid-column:2;text-align:left;color:var(--coral)}
+  .float-row .time{grid-column:2;text-align:left}
   .float-row .dot{align-self:start;margin-top:5px}
 }
 
@@ -121,68 +131,71 @@ section{padding-block:clamp(56px,8vw,96px)}
 @keyframes sway{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
 .str{fill:none;stroke:var(--string);stroke-width:1.4}
 
-/* Catalog */
+/* Catalog: each card has a coloured cap */
 .cat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
-.cat{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px 22px 12px;display:grid;gap:8px}
-.cat h3{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:10px}
-.cat > p{color:var(--muted);font-size:.93rem;margin-bottom:6px}
-.cat ul{list-style:none;margin:0;padding:0}
+.cat{background:var(--surface);border:2px solid color-mix(in srgb,var(--c) 35%,transparent);border-radius:22px;overflow:hidden;display:grid}
+.cat h3{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:10px;background:var(--c);color:#fff;padding:18px 22px}
+.cat h3 .dot{--c:#fff}
+.cat > p{color:var(--muted);font-size:.93rem;padding:16px 22px 4px}
+.cat ul{list-style:none;margin:0;padding:0 22px 10px}
 .cat li + li{border-top:1px solid var(--line)}
 .cat a{display:flex;align-items:center;gap:12px;padding:12px 0;text-decoration:none;font-weight:600}
-.cat a .arr{margin-left:auto;color:var(--muted);transition:transform .15s}
-.cat a:hover .arr{transform:translateX(4px);color:var(--coral)}
+.cat a .arr{margin-left:auto;color:var(--c);font-weight:700;transition:transform .15s}
+.cat a:hover{color:var(--c)}
+.cat a:hover .arr{transform:translateX(4px)}
 .dot{width:14px;height:17px;border-radius:50% 50% 48% 48%/44% 44% 56% 56%;flex:none;position:relative;background:var(--c)}
 .dot::after{content:"";position:absolute;left:50%;bottom:-3px;width:5px;height:4px;margin-left:-2.5px;background:var(--c);clip-path:polygon(50% 0,100% 100%,0 100%)}
 @media (max-width:900px){.cat-grid{grid-template-columns:1fr}}
 
-/* Occasions */
+/* Occasions: tinted tiles */
 .occ-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.occ{position:relative;overflow:hidden;display:grid;gap:8px;align-content:start;min-height:200px;padding:24px;border-radius:22px;background:var(--surface);border:1px solid var(--line);text-decoration:none;transition:transform .2s ease,border-color .2s}
+.occ{position:relative;overflow:hidden;display:grid;gap:8px;align-content:start;min-height:200px;padding:24px;border-radius:22px;background:color-mix(in srgb,var(--c) 15%,var(--surface));border:2px solid color-mix(in srgb,var(--c) 30%,transparent);text-decoration:none;transition:transform .2s ease,border-color .2s}
 .occ:hover{transform:translateY(-3px);border-color:var(--c)}
 .occ h3{font-size:1.15rem;font-weight:700;max-width:70%}
 .occ p{color:var(--muted);font-size:.95rem;max-width:80%}
-.occ .more{margin-top:auto;padding-top:14px;font-weight:700;color:var(--c);font-size:.95rem}
+.occ .more{margin-top:auto;padding-top:14px;font-weight:700;font-size:.95rem;text-decoration:underline;text-decoration-color:var(--c);text-decoration-thickness:3px;text-underline-offset:5px}
 .occ .trio{position:absolute;right:-6px;top:14px;width:76px;height:96px;pointer-events:none}
-.occ .trio span{position:absolute;width:34px;height:41px;border-radius:50% 50% 48% 48%/44% 44% 56% 56%;background:var(--c);opacity:.9}
-.occ .trio span:nth-child(1){left:0;top:16px;opacity:.45}
+.occ .trio span{position:absolute;width:34px;height:41px;border-radius:50% 50% 48% 48%/44% 44% 56% 56%;background:var(--c)}
+.occ .trio span:nth-child(1){left:0;top:16px;opacity:.55}
 .occ .trio span:nth-child(2){left:22px;top:0}
-.occ .trio span:nth-child(3){left:38px;top:30px;opacity:.65}
+.occ .trio span:nth-child(3){left:38px;top:30px;opacity:.8}
 @media (max-width:900px){.occ-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.occ-grid{grid-template-columns:1fr}.occ{min-height:0}}
 
-/* Business band */
-.band{background:var(--band);color:var(--band-fg)}
-.biz{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.biz h2{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:700}
+/* Business band: brand gradient, same in both themes */
+.band{position:relative;overflow:hidden;background:linear-gradient(125deg,#4E1AA8 0%,#8A1BA0 45%,#D3106B 100%)}
+.band::before{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:300px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.28),rgba(255,255,255,0) 60%);pointer-events:none}
+.biz{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.biz h2{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:700;color:#fff}
+.biz .eyebrow{color:#FFD23F}
 .biz .copy{display:grid;gap:18px;min-width:0}
-.biz .copy p{color:var(--band-muted);font-size:1.05rem;max-width:34em}
+.biz .copy p{color:rgba(255,255,255,.88);font-size:1.05rem;max-width:34em}
 .biz ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.biz li{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border:1px solid rgba(255,255,255,.14);border-radius:18px}
-.biz li b{display:block;font-size:1.02rem}
-.biz li span{color:var(--band-muted);font-size:.93rem}
+.biz li{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:18px}
+.biz li b{display:block;font-size:1.02rem;color:#fff}
+.biz li span{color:rgba(255,255,255,.82);font-size:.93rem}
 .biz .dot{margin-top:5px}
-.logo-balloon{display:grid;place-items:center}
 @media (max-width:860px){.biz{grid-template-columns:1fr}}
 
 /* Care / float time */
 .two{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px 24px;min-width:0}
+.panel{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:26px 24px;min-width:0}
 .panel h3{font-size:1.15rem;font-weight:700;margin-bottom:16px}
 .float-row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
 .float-row:first-of-type{border-top:0;padding-top:0}
 .float-row b{display:block;font-weight:700}
 .float-row small{display:block;color:var(--muted);font-size:.88rem}
-.float-row .time{font-family:var(--display);font-weight:700;font-size:1rem;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.float-row .time{font-family:var(--display);font-weight:700;font-size:1rem;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--rasp)}
 .note{color:var(--muted);font-size:.88rem;margin-top:14px}
-.tips{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.tips li{display:grid;gap:2px;padding-left:16px;border-left:3px solid var(--c)}
+.tips{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.tips li{display:grid;gap:2px;padding:12px 16px;border-left:4px solid var(--c);border-radius:4px 14px 14px 4px;background:color-mix(in srgb,var(--c) 12%,var(--surface))}
 .tips li span{color:var(--muted);font-size:.93rem}
 @media (max-width:860px){.two{grid-template-columns:1fr}}
 
 /* Steps */
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s;list-style:none;margin:0;padding:0}
-.steps li{counter-increment:s;display:grid;gap:8px;align-content:start;padding:24px;border-radius:22px;border:1px dashed var(--line)}
-.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:2.2rem;color:var(--c);line-height:1}
+.steps li{counter-increment:s;display:grid;gap:8px;align-content:start;padding:24px;border-radius:22px;background:color-mix(in srgb,var(--c) 12%,var(--surface));border:2px solid color-mix(in srgb,var(--c) 28%,transparent)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--c);color:#fff;font-family:var(--display);font-weight:800;font-size:1.4rem;line-height:1;margin-bottom:6px}
 .steps b{font-size:1.08rem}
 .steps span{color:var(--muted);font-size:.95rem}
 @media (max-width:760px){.steps{grid-template-columns:1fr}}
@@ -192,17 +205,18 @@ section{padding-block:clamp(56px,8vw,96px)}
 .c-rows{display:grid}
 .c-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:16px 0;border-top:1px solid var(--line)}
 .c-row:first-child{border-top:0;padding-top:0}
-.c-row .label{width:100%;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.c-row .label{width:100%;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--rasp);font-weight:700}
 .c-row .val{font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums;text-decoration:none;user-select:all;overflow-wrap:anywhere;min-width:0}
-.copy-btn{margin-left:auto;font:inherit;font-size:.85rem;font-weight:600;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
-.copy-btn:hover{border-color:var(--ink)}
-.mini-label{display:block;margin-bottom:10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.copy-btn{margin-left:auto;font:inherit;font-size:.85rem;font-weight:600;padding:6px 14px;border-radius:999px;border:1px solid var(--rasp);background:var(--surface);color:var(--rasp);cursor:pointer}
+.copy-btn:hover{background:var(--rasp);color:var(--rasp-ink)}
+.mini-label{display:block;margin-bottom:10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--rasp);font-weight:700}
 .addr{font-size:1.25rem;font-weight:700;line-height:1.35}
 .addr-sub{color:var(--muted);margin-top:8px}
 .panel .btns{margin-top:20px}
+.shop{background:color-mix(in srgb,var(--sun) 16%,var(--surface));border-color:color-mix(in srgb,var(--sun) 45%,transparent)}
 @media (max-width:860px){.contacts{grid-template-columns:1fr}}
 
-footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:.9rem}
+footer{background:#C70C62;color:rgba(255,255,255,.9);padding-block:28px;font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
 @media (prefers-reduced-motion: reduce){
@@ -216,7 +230,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Крым Шар, наверх">
-      <svg width="26" height="32" viewBox="0 0 26 32" aria-hidden="true"><ellipse cx="13" cy="12" rx="11" ry="12" style="fill:var(--coral)"/><ellipse cx="9" cy="8" rx="3" ry="4.5" fill="#fff" opacity=".45"/><path d="M10 25h6l-3-2z" style="fill:var(--coral)"/><path d="M13 25c-2 3 2 4 0 7" class="str"/></svg>
+      <svg width="26" height="32" viewBox="0 0 26 32" aria-hidden="true"><ellipse cx="13" cy="12" rx="11" ry="12" style="fill:var(--rasp)"/><ellipse cx="9" cy="8" rx="3" ry="4.5" fill="#fff" opacity=".45"/><path d="M10 25h6l-3-2z" style="fill:var(--rasp)"/><path d="M13 25c-2 3 2 4 0 7" class="str"/></svg>
       Крым Шар
     </a>
     <nav class="nav" aria-label="Разделы">
@@ -230,7 +244,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 </header>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero on-color">
     <div class="wrap">
       <div class="hero-text">
         <p class="eyebrow">Праздник в каждый дом!</p>
@@ -267,31 +281,31 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
           <g id="balloons">
             <g class="b" data-b><g class="bob">
               <path class="str" d="M122 233 Q150 360 200 472"/>
-              <ellipse cx="122" cy="150" rx="62" ry="75" style="fill:var(--coral)"/>
+              <ellipse cx="122" cy="150" rx="62" ry="75" style="fill:#FFD23F"/>
               <ellipse cx="122" cy="150" rx="62" ry="75" fill="url(#shade)"/>
               <ellipse cx="100" cy="118" rx="13" ry="22" fill="#fff" opacity=".45" transform="rotate(-20 100 118)"/>
-              <path d="M115 233h14l-7-9z" style="fill:var(--coral)"/>
+              <path d="M115 233h14l-7-9z" style="fill:#FFD23F"/>
             </g></g>
             <g class="b" data-b><g class="bob">
               <path class="str" d="M268 205 Q250 350 200 472"/>
-              <ellipse cx="268" cy="122" rx="64" ry="76" style="fill:var(--cobalt)"/>
+              <ellipse cx="268" cy="122" rx="64" ry="76" style="fill:#7447F5"/>
               <ellipse cx="268" cy="122" rx="64" ry="76" fill="url(#shade)"/>
               <ellipse cx="245" cy="90" rx="13" ry="22" fill="#fff" opacity=".42" transform="rotate(-20 245 90)"/>
-              <path d="M261 205h14l-7-9z" style="fill:var(--cobalt)"/>
+              <path d="M261 205h14l-7-9z" style="fill:#7447F5"/>
             </g></g>
             <g class="b" data-b><g class="bob">
               <path class="str" d="M318 322 Q280 410 200 472"/>
-              <ellipse cx="318" cy="252" rx="54" ry="66" style="fill:var(--mint)"/>
+              <ellipse cx="318" cy="252" rx="54" ry="66" style="fill:#14C4B1"/>
               <ellipse cx="318" cy="252" rx="54" ry="66" fill="url(#shade)"/>
               <ellipse cx="298" cy="224" rx="11" ry="19" fill="#fff" opacity=".45" transform="rotate(-20 298 224)"/>
-              <path d="M311 322h14l-7-9z" style="fill:var(--mint)"/>
+              <path d="M311 322h14l-7-9z" style="fill:#14C4B1"/>
             </g></g>
             <g class="b" data-b><g class="bob">
               <path class="str" d="M205 310 Q205 400 200 472"/>
-              <ellipse cx="205" cy="236" rx="58" ry="70" style="fill:var(--sun)"/>
+              <ellipse cx="205" cy="236" rx="58" ry="70" style="fill:#FFFFFF"/>
               <ellipse cx="205" cy="236" rx="58" ry="70" fill="url(#shade)"/>
-              <ellipse cx="184" cy="206" rx="12" ry="20" fill="#fff" opacity=".5" transform="rotate(-20 184 206)"/>
-              <path d="M198 310h14l-7-9z" style="fill:var(--sun)"/>
+              <ellipse cx="184" cy="206" rx="12" ry="20" fill="#fff" opacity=".9" transform="rotate(-20 184 206)" style="fill:#FFD6E8"/>
+              <path d="M198 310h14l-7-9z" style="fill:#FFFFFF"/>
             </g></g>
             <g class="b" data-b><g class="bob">
               <path class="str" d="M96 382 Q140 440 200 472"/>
@@ -299,8 +313,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
             </g></g>
           </g>
           <g aria-hidden="true">
-            <path d="M190 470 l10 4 10-4 -4 10 h-12z" style="fill:var(--coral)"/>
-            <rect x="183" y="480" width="34" height="34" rx="9" style="fill:var(--cobalt)"/>
+            <path d="M190 470 l10 4 10-4 -4 10 h-12z" style="fill:#FFD23F"/>
+            <rect x="183" y="480" width="34" height="34" rx="9" style="fill:#7447F5"/>
             <rect x="196" y="480" width="8" height="34" fill="#fff" opacity=".35"/>
           </g>
         </svg>
@@ -317,8 +331,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <p>Готовые букеты, подарки с шарами и оформление залов. Фотографии и цены по каждому разделу открываются в каталоге.</p>
       </div>
       <div class="cat-grid">
-        <div class="cat">
-          <h3><i class="dot" style="--c:var(--coral)"></i>Букеты из шаров</h3>
+        <div class="cat" style="--c:var(--rasp)">
+          <h3><i class="dot"></i>Букеты из шаров</h3>
           <p>Гелиевые букеты на грузике под любой возраст и характер.</p>
           <ul>
             <li><a href="https://sharcrimea.ru/catalog/byketu-is-believing-sharov-jenskie" target="_blank" rel="noopener">Женские букеты<span class="arr">→</span></a></li>
@@ -327,8 +341,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
             <li><a href="https://sharcrimea.ru/catalog/craftovue-byketu-iz-sharov" target="_blank" rel="noopener">Крафтовые букеты<span class="arr">→</span></a></li>
           </ul>
         </div>
-        <div class="cat">
-          <h3><i class="dot" style="--c:var(--cobalt)"></i>Подарки и сюрпризы</h3>
+        <div class="cat" style="--c:var(--cobalt)">
+          <h3><i class="dot"></i>Подарки и сюрпризы</h3>
           <p>Когда хочется удивить: коробка открывается, шары взлетают.</p>
           <ul>
             <li><a href="https://sharcrimea.ru/catalog/korobka-surprise-s-vozdyshnumi-sharami" target="_blank" rel="noopener">Коробка-сюрприз с шарами<span class="arr">→</span></a></li>
@@ -337,8 +351,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
             <li><a href="https://sharcrimea.ru/catalog/svetodiodnye-shary" target="_blank" rel="noopener">Светодиодные шары<span class="arr">→</span></a></li>
           </ul>
         </div>
-        <div class="cat">
-          <h3><i class="dot" style="--c:var(--mint)"></i>Оформление праздников</h3>
+        <div class="cat" style="--c:var(--orange)">
+          <h3><i class="dot"></i>Оформление праздников</h3>
           <p>Украшаем залы, кафе, рестораны и встречу у роддома.</p>
           <ul>
             <li><a href="https://sharcrimea.ru/catalog/gelievye-shary" target="_blank" rel="noopener">Гелиевые шары<span class="arr">→</span></a></li>
@@ -360,7 +374,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <p>Выберите повод и посмотрите, как мы уже украшали такие события.</p>
       </div>
       <div class="occ-grid">
-        <a class="occ" style="--c:var(--coral)" href="https://sharcrimea.ru/portfolio/oformlenie-svadeb" target="_blank" rel="noopener">
+        <a class="occ" style="--c:var(--rasp)" href="https://sharcrimea.ru/portfolio/oformlenie-svadeb" target="_blank" rel="noopener">
           <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
           <h3>Свадьбы</h3><p>Залы, кафе и рестораны, арки для выездной регистрации</p><span class="more">Смотреть фото →</span>
         </a>
@@ -376,11 +390,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
           <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
           <h3>Юбилеи</h3><p>Цифры из фольги, фотозоны и букеты для именинника</p><span class="more">Смотреть фото →</span>
         </a>
-        <a class="occ" style="--c:var(--coral)" href="https://sharcrimea.ru/portfolio/Vipyscnie" target="_blank" rel="noopener">
+        <a class="occ" style="--c:var(--orange)" href="https://sharcrimea.ru/portfolio/Vipyscnie" target="_blank" rel="noopener">
           <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
           <h3>Выпускные</h3><p>Оформление актовых залов, классов и школьных дворов</p><span class="more">Смотреть фото →</span>
         </a>
-        <a class="occ" style="--c:var(--cobalt)" href="https://sharcrimea.ru/portfolio/oformlenie-sharami-otkrytiy" target="_blank" rel="noopener">
+        <a class="occ" style="--c:var(--rasp)" href="https://sharcrimea.ru/portfolio/oformlenie-sharami-otkrytiy" target="_blank" rel="noopener">
           <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
           <h3>Открытия</h3><p>Магазины, салоны и кафе: входная арка заметна с улицы</p><span class="more">Смотреть фото →</span>
         </a>
@@ -388,7 +402,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     </div>
   </section>
 
-  <section id="biznes" class="band">
+  <section id="biznes" class="band on-color">
     <div class="wrap biz">
       <div class="copy">
         <p class="eyebrow">Для бизнеса</p>
@@ -399,7 +413,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       <ul>
         <li><i class="dot" style="--c:var(--sun)"></i><div><b>Печать на шарах</b><span>Логотип в цвете, шар в цвете вашего бренда</span></div></li>
         <li><i class="dot" style="--c:var(--mint)"></i><div><b>Промо-раздача</b><span>Шары для акций, ярмарок и открытия точки</span></div></li>
-        <li><i class="dot" style="--c:var(--coral)"></i><div><b>Корпоративы и юбилеи фирм</b><span>Оформление зала в стиле компании</span></div></li>
+        <li><i class="dot" style="--c:var(--rasp)"></i><div><b>Корпоративы и юбилеи фирм</b><span>Оформление зала в стиле компании</span></div></li>
       </ul>
     </div>
   </section>
@@ -414,7 +428,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       <div class="two">
         <div class="panel">
           <h3>Время полёта с гелием</h3>
-          <div class="float-row"><i class="dot" style="--c:var(--coral)"></i><div><b>Латексный шар</b><small>без специальной обработки</small></div><span class="time">около 12 ч</span></div>
+          <div class="float-row"><i class="dot" style="--c:var(--rasp)"></i><div><b>Латексный шар</b><small>без специальной обработки</small></div><span class="time">около 12 ч</span></div>
           <div class="float-row"><i class="dot" style="--c:var(--sun)"></i><div><b>Латексный шар с обработкой</b><small>внутрь наносится состав, который держит гелий</small></div><span class="time">от 3 дней</span></div>
           <div class="float-row"><i class="dot" style="--c:var(--cobalt)"></i><div><b>Фольгированный шар, цифра</b><small>плотная плёнка почти не выпускает гелий</small></div><span class="time">1–3 недели</span></div>
           <p class="note">Сроки примерные и зависят от температуры в помещении. Точно скажем при заказе.</p>
@@ -424,7 +438,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
           <ul class="tips">
             <li style="--c:var(--mint)"><b>Зимой везите в салоне</b><span>На морозе шары сжимаются и опускаются. В тепле снова расправятся.</span></li>
             <li style="--c:var(--sun)"><b>Не оставляйте на солнце</b><span>Летом в машине гелий расширяется, и шар может лопнуть.</span></li>
-            <li style="--c:var(--coral)"><b>Подальше от батарей и ламп</b><span>Горячие поверхности и острые углы опасны для латекса.</span></li>
+            <li style="--c:var(--rasp)"><b>Подальше от батарей и ламп</b><span>Горячие поверхности и острые углы опасны для латекса.</span></li>
           </ul>
         </div>
       </div>
@@ -438,9 +452,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <h2>Три шага до праздника</h2>
       </div>
       <ol class="steps">
-        <li style="--c:var(--coral)"><b>Позвоните или напишите</b><span>По телефону или ВКонтакте. Расскажите про повод, дату и место.</span></li>
+        <li style="--c:var(--rasp)"><b>Позвоните или напишите</b><span>По телефону или ВКонтакте. Расскажите про повод, дату и место.</span></li>
         <li style="--c:var(--cobalt)"><b>Подберём оформление</b><span>Предложим цвета, состав букета или композицию под ваш бюджет.</span></li>
-        <li style="--c:var(--mint)"><b>Надуем и привезём</b><span>Доставим в Симферополе и по всему Крыму. Оплата любым удобным способом.</span></li>
+        <li style="--c:var(--orange)"><b>Надуем и привезём</b><span>Доставим в Симферополе и по всему Крыму. Оплата любым удобным способом.</span></li>
       </ol>
     </div>
   </section>
@@ -460,7 +474,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
             <div class="c-row"><span class="label">ВКонтакте</span><a class="val" href="https://vk.com/shar.crimea" target="_blank" rel="noopener">vk.com/shar.crimea</a></div>
           </div>
         </div>
-        <div class="panel">
+        <div class="panel shop">
           <span class="mini-label">Магазин</span>
           <p class="addr">Симферополь, ул.&nbsp;Кирова,&nbsp;33</p>
           <p class="addr-sub">Подземный переход на площади Советской, бутики № 95 и № 56</p>
