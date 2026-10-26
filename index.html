@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Крым Шар</title>
+<meta name="description" content="Гелиевые шары и оформление праздников в Симферополе. Доставка шаров по всему Крыму с 2006 года.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap">
+<style>
+/* Layout: sky-coloured page, hero with a live balloon bouquet on the right; content in calm bands, colour lives only in the balloons and one coral action colour */
+:root{
+  --bg:#F2F5FB;
+  --surface:#FFFFFF;
+  --ink:#1B2140;
+  --muted:#5A6386;
+  --line:#DDE3F0;
+  --glass:rgba(242,245,251,.86);
+  --band:#1B2140;
+  --band-fg:#F2F5FB;
+  --band-muted:#AEB6D6;
+  --coral:#FF5A6E;
+  --coral-ink:#FFFFFF;
+  --sun:#FFC23D;
+  --mint:#33C7A8;
+  --cobalt:#4A6CFF;
+  --string:#8A92B2;
+  --display:"Unbounded","Arial Rounded MT Bold","Trebuchet MS",sans-serif;
+  --body:"Manrope","Segoe UI",Roboto,Arial,sans-serif;
+  --hand:"Caveat","Comic Sans MS",cursive;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11152B;--surface:#1A2040;--ink:#EEF1FB;--muted:#A4ACCB;--line:#2B3361;
+    --glass:rgba(17,21,43,.86);--band:#1A2040;--band-fg:#EEF1FB;--band-muted:#A4ACCB;
+    --coral:#FF6B7D;--coral-ink:#1B0A10;--string:#6E77A0;color-scheme:dark
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11152B;--surface:#1A2040;--ink:#EEF1FB;--muted:#A4ACCB;--line:#2B3361;
+  --glass:rgba(17,21,43,.86);--band:#1A2040;--band-fg:#EEF1FB;--band-muted:#A4ACCB;
+  --coral:#FF6B7D;--coral-ink:#1B0A10;--string:#6E77A0;color-scheme:dark
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(56px,8vw,96px)}
+.eyebrow{font-family:var(--hand);font-size:1.6rem;color:var(--coral);line-height:1}
+.section-head{display:grid;gap:12px;max-width:640px;margin-bottom:clamp(28px,4vw,44px)}
+.section-head h2{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:700}
+.section-head p{color:var(--muted);font-size:1.05rem}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.15rem;white-space:nowrap}
+.logo svg{flex:none}
+.nav{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:.95rem}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.top-phone{font-weight:700;text-decoration:none;white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:860px){.nav{display:none}.top-phone{margin-left:auto}}
+@media (max-width:420px){.top-phone{font-size:.9rem}}
+
+/* Buttons */
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;border:2px solid transparent;transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--coral);color:var(--coral-ink)}
+.btn-ghost{border-color:var(--line);background:var(--surface)}
+
+/* Hero */
+.hero{padding-block:clamp(32px,5vw,64px) clamp(40px,6vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
+.hero-text{display:grid;gap:22px;min-width:0}
+.hero h1{font-size:clamp(2rem,5vw,3.9rem);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--muted);max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:8px;border-top:1px solid var(--line);margin-top:6px}
+.fact{display:grid;gap:2px;padding-top:14px}
+.fact b{font-family:var(--display);font-size:1.35rem;font-weight:700}
+.fact span{color:var(--muted);font-size:.9rem}
+.bouquet{position:relative;justify-self:center;width:100%;max-width:420px}
+.bouquet svg{width:100%;height:auto;display:block;overflow:visible}
+.bouquet .hint{display:block;text-align:center;margin-top:6px;font-family:var(--hand);font-size:1.35rem;color:var(--muted)}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .bouquet{max-width:280px}
+}
+@media (max-width:560px){
+  .hero .btn{flex:1 1 100%;justify-content:center}
+  .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .fact b{font-size:1.05rem}
+  .fact span{font-size:.82rem;line-height:1.35}
+  .panel{padding:22px 18px}
+  .c-row .val{font-size:1.05rem}
+  .copy-btn{padding:5px 12px}
+  .float-row{grid-template-columns:auto 1fr;gap:4px 12px}
+  .float-row .time{grid-column:2;text-align:left;color:var(--coral)}
+  .float-row .dot{align-self:start;margin-top:5px}
+}
+
+/* Balloons */
+.b{cursor:pointer;transform-box:view-box;transform-origin:200px 472px;transition:transform 1.5s cubic-bezier(.4,0,.6,1),opacity 1.5s ease}
+.b.fly{transform:translateY(-720px) rotate(6deg);opacity:0}
+.b.back{transition:none;transform:translateY(60px);opacity:0}
+.bob{transform-box:view-box;transform-origin:200px 472px;animation:sway 6s ease-in-out infinite}
+.b:nth-child(2) .bob{animation-delay:-1.5s;animation-duration:7s}
+.b:nth-child(3) .bob{animation-delay:-3s;animation-duration:5.5s}
+.b:nth-child(4) .bob{animation-delay:-4.2s;animation-duration:6.5s}
+.b:nth-child(5) .bob{animation-delay:-2.2s;animation-duration:8s}
+@keyframes sway{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
+.str{fill:none;stroke:var(--string);stroke-width:1.4}
+
+/* Catalog */
+.cat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.cat{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px 22px 12px;display:grid;gap:8px}
+.cat h3{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:10px}
+.cat > p{color:var(--muted);font-size:.93rem;margin-bottom:6px}
+.cat ul{list-style:none;margin:0;padding:0}
+.cat li + li{border-top:1px solid var(--line)}
+.cat a{display:flex;align-items:center;gap:12px;padding:12px 0;text-decoration:none;font-weight:600}
+.cat a .arr{margin-left:auto;color:var(--muted);transition:transform .15s}
+.cat a:hover .arr{transform:translateX(4px);color:var(--coral)}
+.dot{width:14px;height:17px;border-radius:50% 50% 48% 48%/44% 44% 56% 56%;flex:none;position:relative;background:var(--c)}
+.dot::after{content:"";position:absolute;left:50%;bottom:-3px;width:5px;height:4px;margin-left:-2.5px;background:var(--c);clip-path:polygon(50% 0,100% 100%,0 100%)}
+@media (max-width:900px){.cat-grid{grid-template-columns:1fr}}
+
+/* Occasions */
+.occ-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.occ{position:relative;overflow:hidden;display:grid;gap:8px;align-content:start;min-height:200px;padding:24px;border-radius:22px;background:var(--surface);border:1px solid var(--line);text-decoration:none;transition:transform .2s ease,border-color .2s}
+.occ:hover{transform:translateY(-3px);border-color:var(--c)}
+.occ h3{font-size:1.15rem;font-weight:700;max-width:70%}
+.occ p{color:var(--muted);font-size:.95rem;max-width:80%}
+.occ .more{margin-top:auto;padding-top:14px;font-weight:700;color:var(--c);font-size:.95rem}
+.occ .trio{position:absolute;right:-6px;top:14px;width:76px;height:96px;pointer-events:none}
+.occ .trio span{position:absolute;width:34px;height:41px;border-radius:50% 50% 48% 48%/44% 44% 56% 56%;background:var(--c);opacity:.9}
+.occ .trio span:nth-child(1){left:0;top:16px;opacity:.45}
+.occ .trio span:nth-child(2){left:22px;top:0}
+.occ .trio span:nth-child(3){left:38px;top:30px;opacity:.65}
+@media (max-width:900px){.occ-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.occ-grid{grid-template-columns:1fr}.occ{min-height:0}}
+
+/* Business band */
+.band{background:var(--band);color:var(--band-fg)}
+.biz{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.biz h2{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:700}
+.biz .copy{display:grid;gap:18px;min-width:0}
+.biz .copy p{color:var(--band-muted);font-size:1.05rem;max-width:34em}
+.biz ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.biz li{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border:1px solid rgba(255,255,255,.14);border-radius:18px}
+.biz li b{display:block;font-size:1.02rem}
+.biz li span{color:var(--band-muted);font-size:.93rem}
+.biz .dot{margin-top:5px}
+.logo-balloon{display:grid;place-items:center}
+@media (max-width:860px){.biz{grid-template-columns:1fr}}
+
+/* Care / float time */
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px 24px;min-width:0}
+.panel h3{font-size:1.15rem;font-weight:700;margin-bottom:16px}
+.float-row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.float-row:first-of-type{border-top:0;padding-top:0}
+.float-row b{display:block;font-weight:700}
+.float-row small{display:block;color:var(--muted);font-size:.88rem}
+.float-row .time{font-family:var(--display);font-weight:700;font-size:1rem;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.note{color:var(--muted);font-size:.88rem;margin-top:14px}
+.tips{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.tips li{display:grid;gap:2px;padding-left:16px;border-left:3px solid var(--c)}
+.tips li span{color:var(--muted);font-size:.93rem}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{counter-increment:s;display:grid;gap:8px;align-content:start;padding:24px;border-radius:22px;border:1px dashed var(--line)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:2.2rem;color:var(--c);line-height:1}
+.steps b{font-size:1.08rem}
+.steps span{color:var(--muted);font-size:.95rem}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* Contacts */
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.c-rows{display:grid}
+.c-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:16px 0;border-top:1px solid var(--line)}
+.c-row:first-child{border-top:0;padding-top:0}
+.c-row .label{width:100%;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.c-row .val{font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums;text-decoration:none;user-select:all;overflow-wrap:anywhere;min-width:0}
+.copy-btn{margin-left:auto;font:inherit;font-size:.85rem;font-weight:600;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.copy-btn:hover{border-color:var(--ink)}
+.mini-label{display:block;margin-bottom:10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.addr{font-size:1.25rem;font-weight:700;line-height:1.35}
+.addr-sub{color:var(--muted);margin-top:8px}
+.panel .btns{margin-top:20px}
+@media (max-width:860px){.contacts{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .bob{animation:none}
+  .b,.btn,.occ,.cat a .arr{transition:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Крым Шар, наверх">
+      <svg width="26" height="32" viewBox="0 0 26 32" aria-hidden="true"><ellipse cx="13" cy="12" rx="11" ry="12" style="fill:var(--coral)"/><ellipse cx="9" cy="8" rx="3" ry="4.5" fill="#fff" opacity=".45"/><path d="M10 25h6l-3-2z" style="fill:var(--coral)"/><path d="M13 25c-2 3 2 4 0 7" class="str"/></svg>
+      Крым Шар
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#katalog">Каталог</a>
+      <a href="#povody">Поводы</a>
+      <a href="#biznes">Для бизнеса</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="top-phone" href="tel:+79787926064">+7 978 792-60-64</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <p class="eyebrow">Праздник в каждый дом!</p>
+        <h1>Гелиевые шары и&nbsp;оформление праздников <em>по&nbsp;всему Крыму</em></h1>
+        <p class="lead">Собираем букеты из шаров, украшаем свадьбы, выписки, детские дни рождения и открытия магазинов. Работаем в Симферополе с 2006 года и привозим шары в любой город полуострова.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="tel:+79787926064">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+            Позвонить
+          </a>
+          <a class="btn btn-ghost" href="https://vk.com/shar.crimea" target="_blank" rel="noopener">Написать ВКонтакте</a>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>20 лет</b><span>украшаем праздники</span></div>
+          <div class="fact"><b>Весь Крым</b><span>доставка шаров</span></div>
+          <div class="fact"><b>Любая</b><span>форма оплаты</span></div>
+        </div>
+      </div>
+
+      <div class="bouquet">
+        <svg viewBox="0 0 400 540" role="img" aria-label="Связка воздушных шаров с фольгированной цифрой 20">
+          <defs>
+            <radialGradient id="shade" cx=".38" cy=".32" r=".78">
+              <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+              <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+            </radialGradient>
+            <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FFE7A0"/>
+              <stop offset=".35" stop-color="#E9AE34"/>
+              <stop offset=".6" stop-color="#FFF2C2"/>
+              <stop offset="1" stop-color="#C4861A"/>
+            </linearGradient>
+          </defs>
+          <g id="balloons">
+            <g class="b" data-b><g class="bob">
+              <path class="str" d="M122 233 Q150 360 200 472"/>
+              <ellipse cx="122" cy="150" rx="62" ry="75" style="fill:var(--coral)"/>
+              <ellipse cx="122" cy="150" rx="62" ry="75" fill="url(#shade)"/>
+              <ellipse cx="100" cy="118" rx="13" ry="22" fill="#fff" opacity=".45" transform="rotate(-20 100 118)"/>
+              <path d="M115 233h14l-7-9z" style="fill:var(--coral)"/>
+            </g></g>
+            <g class="b" data-b><g class="bob">
+              <path class="str" d="M268 205 Q250 350 200 472"/>
+              <ellipse cx="268" cy="122" rx="64" ry="76" style="fill:var(--cobalt)"/>
+              <ellipse cx="268" cy="122" rx="64" ry="76" fill="url(#shade)"/>
+              <ellipse cx="245" cy="90" rx="13" ry="22" fill="#fff" opacity=".42" transform="rotate(-20 245 90)"/>
+              <path d="M261 205h14l-7-9z" style="fill:var(--cobalt)"/>
+            </g></g>
+            <g class="b" data-b><g class="bob">
+              <path class="str" d="M318 322 Q280 410 200 472"/>
+              <ellipse cx="318" cy="252" rx="54" ry="66" style="fill:var(--mint)"/>
+              <ellipse cx="318" cy="252" rx="54" ry="66" fill="url(#shade)"/>
+              <ellipse cx="298" cy="224" rx="11" ry="19" fill="#fff" opacity=".45" transform="rotate(-20 298 224)"/>
+              <path d="M311 322h14l-7-9z" style="fill:var(--mint)"/>
+            </g></g>
+            <g class="b" data-b><g class="bob">
+              <path class="str" d="M205 310 Q205 400 200 472"/>
+              <ellipse cx="205" cy="236" rx="58" ry="70" style="fill:var(--sun)"/>
+              <ellipse cx="205" cy="236" rx="58" ry="70" fill="url(#shade)"/>
+              <ellipse cx="184" cy="206" rx="12" ry="20" fill="#fff" opacity=".5" transform="rotate(-20 184 206)"/>
+              <path d="M198 310h14l-7-9z" style="fill:var(--sun)"/>
+            </g></g>
+            <g class="b" data-b><g class="bob">
+              <path class="str" d="M96 382 Q140 440 200 472"/>
+              <text x="96" y="380" text-anchor="middle" font-family="Unbounded, Arial Rounded MT Bold, sans-serif" font-weight="800" font-size="118" fill="url(#gold)" stroke="#fff" stroke-opacity=".7" stroke-width="3" paint-order="stroke" letter-spacing="-6">20</text>
+            </g></g>
+          </g>
+          <g aria-hidden="true">
+            <path d="M190 470 l10 4 10-4 -4 10 h-12z" style="fill:var(--coral)"/>
+            <rect x="183" y="480" width="34" height="34" rx="9" style="fill:var(--cobalt)"/>
+            <rect x="196" y="480" width="8" height="34" fill="#fff" opacity=".35"/>
+          </g>
+        </svg>
+        <span class="hint" aria-hidden="true">нажмите на шарик</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="katalog" style="padding-top:clamp(24px,4vw,48px)">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Каталог</p>
+        <h2>Что можно заказать</h2>
+        <p>Готовые букеты, подарки с шарами и оформление залов. Фотографии и цены по каждому разделу открываются в каталоге.</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat">
+          <h3><i class="dot" style="--c:var(--coral)"></i>Букеты из шаров</h3>
+          <p>Гелиевые букеты на грузике под любой возраст и характер.</p>
+          <ul>
+            <li><a href="https://sharcrimea.ru/catalog/byketu-is-believing-sharov-jenskie" target="_blank" rel="noopener">Женские букеты<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/byketu-is-believing-sharov-myjskie" target="_blank" rel="noopener">Мужские букеты<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/byketu-is-believing-sharov-detskie" target="_blank" rel="noopener">Детские букеты, 0–17 лет<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/craftovue-byketu-iz-sharov" target="_blank" rel="noopener">Крафтовые букеты<span class="arr">→</span></a></li>
+          </ul>
+        </div>
+        <div class="cat">
+          <h3><i class="dot" style="--c:var(--cobalt)"></i>Подарки и сюрпризы</h3>
+          <p>Когда хочется удивить: коробка открывается, шары взлетают.</p>
+          <ul>
+            <li><a href="https://sharcrimea.ru/catalog/korobka-surprise-s-vozdyshnumi-sharami" target="_blank" rel="noopener">Коробка-сюрприз с шарами<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/cveti-v-korobke-s-sharom" target="_blank" rel="noopener">Цветы в коробке с шаром<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/folgirovannye-shary-cifry" target="_blank" rel="noopener">Фольгированные шары и цифры<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/svetodiodnye-shary" target="_blank" rel="noopener">Светодиодные шары<span class="arr">→</span></a></li>
+          </ul>
+        </div>
+        <div class="cat">
+          <h3><i class="dot" style="--c:var(--mint)"></i>Оформление праздников</h3>
+          <p>Украшаем залы, кафе, рестораны и встречу у роддома.</p>
+          <ul>
+            <li><a href="https://sharcrimea.ru/catalog/gelievye-shary" target="_blank" rel="noopener">Гелиевые шары<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/arki-girlyandu-fotozony" target="_blank" rel="noopener">Арки, гирлянды, фотозоны<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/serdechki-iz-sharov" target="_blank" rel="noopener">Сердца из шаров, аэромозаика<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/vipiska-iz-roddoma" target="_blank" rel="noopener">Выписка из роддома<span class="arr">→</span></a></li>
+            <li><a href="https://sharcrimea.ru/catalog/shariki-na-genderparty" target="_blank" rel="noopener">Гендер-пати<span class="arr">→</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="povody" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Наши работы</p>
+        <h2>Под какой праздник оформить</h2>
+        <p>Выберите повод и посмотрите, как мы уже украшали такие события.</p>
+      </div>
+      <div class="occ-grid">
+        <a class="occ" style="--c:var(--coral)" href="https://sharcrimea.ru/portfolio/oformlenie-svadeb" target="_blank" rel="noopener">
+          <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
+          <h3>Свадьбы</h3><p>Залы, кафе и рестораны, арки для выездной регистрации</p><span class="more">Смотреть фото →</span>
+        </a>
+        <a class="occ" style="--c:var(--cobalt)" href="https://sharcrimea.ru/portfolio/nypiska-iz-roddoma" target="_blank" rel="noopener">
+          <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
+          <h3>Выписка из роддома</h3><p>Встреча мамы и малыша: шары, гирлянды, украшение машины</p><span class="more">Смотреть фото →</span>
+        </a>
+        <a class="occ" style="--c:var(--sun)" href="https://sharcrimea.ru/portfolio/detskie-prazdniki" target="_blank" rel="noopener">
+          <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
+          <h3>Детские праздники</h3><p>Фигуры из шаров, любимые герои, шары под потолок</p><span class="more">Смотреть фото →</span>
+        </a>
+        <a class="occ" style="--c:var(--mint)" href="https://sharcrimea.ru/portfolio/oformlenie-yubileev" target="_blank" rel="noopener">
+          <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
+          <h3>Юбилеи</h3><p>Цифры из фольги, фотозоны и букеты для именинника</p><span class="more">Смотреть фото →</span>
+        </a>
+        <a class="occ" style="--c:var(--coral)" href="https://sharcrimea.ru/portfolio/Vipyscnie" target="_blank" rel="noopener">
+          <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
+          <h3>Выпускные</h3><p>Оформление актовых залов, классов и школьных дворов</p><span class="more">Смотреть фото →</span>
+        </a>
+        <a class="occ" style="--c:var(--cobalt)" href="https://sharcrimea.ru/portfolio/oformlenie-sharami-otkrytiy" target="_blank" rel="noopener">
+          <span class="trio" aria-hidden="true"><span></span><span></span><span></span></span>
+          <h3>Открытия</h3><p>Магазины, салоны и кафе: входная арка заметна с улицы</p><span class="more">Смотреть фото →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="biznes" class="band">
+    <div class="wrap biz">
+      <div class="copy">
+        <p class="eyebrow">Для бизнеса</p>
+        <h2>Шары с вашим логотипом</h2>
+        <p>Печатаем логотип на шарах в фирменных цветах компании. Такие шары раздают покупателям на улице, ими украшают корпоративы и юбилеи фирм. С нами работают крупные бренды и сети магазинов Крыма.</p>
+        <div class="btns"><a class="btn btn-primary" href="tel:+79787926062">Обсудить заказ</a></div>
+      </div>
+      <ul>
+        <li><i class="dot" style="--c:var(--sun)"></i><div><b>Печать на шарах</b><span>Логотип в цвете, шар в цвете вашего бренда</span></div></li>
+        <li><i class="dot" style="--c:var(--mint)"></i><div><b>Промо-раздача</b><span>Шары для акций, ярмарок и открытия точки</span></div></li>
+        <li><i class="dot" style="--c:var(--coral)"></i><div><b>Корпоративы и юбилеи фирм</b><span>Оформление зала в стиле компании</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Полезно знать</p>
+        <h2>Сколько держится шар</h2>
+        <p>Частый вопрос перед праздником. Подскажем, какие шары взять, чтобы они дожили до гостей.</p>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h3>Время полёта с гелием</h3>
+          <div class="float-row"><i class="dot" style="--c:var(--coral)"></i><div><b>Латексный шар</b><small>без специальной обработки</small></div><span class="time">около 12 ч</span></div>
+          <div class="float-row"><i class="dot" style="--c:var(--sun)"></i><div><b>Латексный шар с обработкой</b><small>внутрь наносится состав, который держит гелий</small></div><span class="time">от 3 дней</span></div>
+          <div class="float-row"><i class="dot" style="--c:var(--cobalt)"></i><div><b>Фольгированный шар, цифра</b><small>плотная плёнка почти не выпускает гелий</small></div><span class="time">1–3 недели</span></div>
+          <p class="note">Сроки примерные и зависят от температуры в помещении. Точно скажем при заказе.</p>
+        </div>
+        <div class="panel">
+          <h3>Как сохранить шары</h3>
+          <ul class="tips">
+            <li style="--c:var(--mint)"><b>Зимой везите в салоне</b><span>На морозе шары сжимаются и опускаются. В тепле снова расправятся.</span></li>
+            <li style="--c:var(--sun)"><b>Не оставляйте на солнце</b><span>Летом в машине гелий расширяется, и шар может лопнуть.</span></li>
+            <li style="--c:var(--coral)"><b>Подальше от батарей и ламп</b><span>Горячие поверхности и острые углы опасны для латекса.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Как заказать</p>
+        <h2>Три шага до праздника</h2>
+      </div>
+      <ol class="steps">
+        <li style="--c:var(--coral)"><b>Позвоните или напишите</b><span>По телефону или ВКонтакте. Расскажите про повод, дату и место.</span></li>
+        <li style="--c:var(--cobalt)"><b>Подберём оформление</b><span>Предложим цвета, состав букета или композицию под ваш бюджет.</span></li>
+        <li style="--c:var(--mint)"><b>Надуем и привезём</b><span>Доставим в Симферополе и по всему Крыму. Оплата любым удобным способом.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="kontakty" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Контакты</p>
+        <h2>Приходите или звоните</h2>
+      </div>
+      <div class="contacts">
+        <div class="panel">
+          <div class="c-rows">
+            <div class="c-row"><span class="label">Телефон</span><a class="val" href="tel:+79787926064">+7 978 792-60-64</a><button class="copy-btn" type="button" id="copy-p1" data-copy="+7 978 792-60-64">Копировать</button></div>
+            <div class="c-row"><span class="label">Телефон</span><a class="val" href="tel:+79787926062">+7 978 792-60-62</a><button class="copy-btn" type="button" id="copy-p2" data-copy="+7 978 792-60-62">Копировать</button></div>
+            <div class="c-row"><span class="label">Почта</span><span class="val">ol_zachka@bk.ru</span><button class="copy-btn" type="button" id="copy-mail" data-copy="ol_zachka@bk.ru">Копировать</button></div>
+            <div class="c-row"><span class="label">ВКонтакте</span><a class="val" href="https://vk.com/shar.crimea" target="_blank" rel="noopener">vk.com/shar.crimea</a></div>
+          </div>
+        </div>
+        <div class="panel">
+          <span class="mini-label">Магазин</span>
+          <p class="addr">Симферополь, ул.&nbsp;Кирова,&nbsp;33</p>
+          <p class="addr-sub">Подземный переход на площади Советской, бутики № 95 и № 56</p>
+          <div class="btns">
+            <a class="btn btn-ghost" href="https://yandex.ru/maps/146/simferopol/?text=%D0%A1%D0%B8%D0%BC%D1%84%D0%B5%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C&z=18" target="_blank" rel="noopener">Открыть на карте</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Крым Шар, 2006–2026</span>
+    <span>Сайт сделан студией «Два окна»</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Tap a balloon: it flies away and a new one comes back
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-b]').forEach(function(b){
+    b.addEventListener('click', function(){
+      if (reduce || b.classList.contains('fly')) return;
+      b.classList.add('fly');
+      setTimeout(function(){
+        b.classList.remove('fly');
+        b.classList.add('back');
+        void b.getBoundingClientRect();
+        requestAnimationFrame(function(){ b.classList.remove('back'); });
+      }, 1700);
+    });
+  });
+
+  // Copy buttons
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = btn.getAttribute('data-copy');
+      var done = function(){ btn.textContent = 'Скопировано'; setTimeout(function(){ btn.textContent = 'Копировать'; }, 1800); };
+      var fallback = function(){
+        var v = btn.parentNode.querySelector('.val');
+        if (!v) return;
+        var r = document.createRange(); r.selectNodeContents(v);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Выделено';
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, fallback);
+        } else { fallback(); }
+      } catch(e){ fallback(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
